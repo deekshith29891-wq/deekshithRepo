@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store">
+    <title>Engineering Student Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- BoxIcons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="tsparticles"></div>
+
+    <nav class="navbar">
+        <a href="#hero" class="logo">E.S<span>.</span></a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#games">Terminal</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="theme-toggle" id="theme-toggle">
+            <i class='bx bx-moon'></i>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div id="hero-canvas-container"></div>
+            <div class="hero-image-wrapper tilt" data-tilt data-tilt-max="12" data-tilt-speed="400">
+                <div class="hero-aura-glow"></div>
+                <div class="hero-orbit-ring"></div>
+
+                <div class="hero-img-inner">
+                    <img src="profile-nobg.png" alt="Deekshith K R" class="hero-profile-img">
+                </div>
+                <div class="hero-profile-nametag" data-aos="fade-up" data-aos-delay="300">
+                    <span class="nametag-title">Mr. Deekshith K R</span>
+                    <span class="nametag-glow-bar"></span>
+                </div>
+            </div>
+            <div class="hero-content">
+                <p class="greeting" data-aos="fade-up">Hello World, I am Deekshith K R</p>
+                <h1 class="glitch-text" data-text="Engineering Student" data-aos="fade-up" data-aos-delay="100">
+                    Engineering Student</h1>
+                <div class="typing-container" data-aos="fade-up" data-aos-delay="200">
+                    <span id="typing-text"></span><span class="cursor">_</span>
+                </div>
+
+                <div class="stats-container" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-label">Skills</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number" data-target="10">0</span>
+                        <span class="stat-label">K+ Hrs Coded</span>
+                    </div>
+                </div>
+
+                <div class="cta-group" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#games" class="btn btn-secondary"><i class='bx bx-game'></i> Play Games</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="section">
+            <h2 class="section-title" data-aos="fade-right">About <span class="neon-text">Me</span></h2>
+            <div class="about-container">
+                <div class="about-card glass-panel" data-aos="zoom-in">
+                    <div class="profile-image-container">
+                        <div class="avatar-glow"></div>
+                        <div id="avatar-3d-container"></div>
+                    </div>
+                    <div class="about-info">
+                        <h3>Passionate Innovator</h3>
+                        <p>I'm an engineering student focused on pushing the boundaries of what's possible with code and
+                            design. I love building high-performance, aesthetically pleasing, and robust applications.
+                        </p>
+                        <ul class="timeline">
+                            <li>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Senior Year Engineering</h4>
+                                    <span>2024 - Present</span>
+                                    <p>Focusing on AI & Advanced Web Technologies.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>Full Stack Developer Intern</h4>
+                                    <span>Summer 2023</span>
+                                    <p>Built scalable solutions handling 10k+ daily requests.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Showcase -->
+        <section id="projects" class="section">
+            <h2 class="section-title" data-aos="fade-right">Featured <span class="neon-text">Projects</span></h2>
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card glass-panel tilt" data-aos="fade-up">
+                    <div class="project-img">
+                        <div class="overlay"></div>
+                        <span class="project-category">AI / ML</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Neural Network Visualizer</h3>
+                        <p>Interactive 3D visualization of neural network layer activations built with WebGL.</p>
+                        <div class="tech-stack">
+                            <span>Three.js</span>
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-icon"><i class='bx bx-link-external'></i> Live Demo</button>
+                            <button class="btn btn-icon"><i class='bx bxl-github'></i> Code</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card glass-panel tilt" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img" style="background: linear-gradient(45deg, #1a1a2e, #7b2cbf)">
+                        <div class="overlay"></div>
+                        <span class="project-category">Web3</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>DeFi Dashboard</h3>
+                        <p>Real-time cryptocurrency portfolio tracker with smart contract integration.</p>
+                        <div class="tech-stack">
+                            <span>React</span>
+                            <span>Solidity</span>
+                            <span>Ethers.js</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-icon"><i class='bx bx-link-external'></i> Live Demo</button>
+                            <button class="btn btn-icon"><i class='bx bxl-github'></i> Code</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="project-card glass-panel tilt" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img" style="background: linear-gradient(45deg, #0a0a0a, #00d4ff)">
+                        <div class="overlay"></div>
+                        <span class="project-category">System</span>
+                    </div>
+                    <div class="project-content">
+                        <h3>Rust Microkernel</h3>
+                        <p>A lightweight, secure microkernel written from scratch in Rust.</p>
+                        <div class="tech-stack">
+                            <span>Rust</span>
+                            <span>Assembly</span>
+                            <span>QEMU</span>
+                        </div>
+                        <div class="project-links">
+                            <button class="btn btn-icon"><i class='bx bxl-github'></i> Code</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Games Section -->
+        <section id="games" class="section">
+            <h2 class="section-title" data-aos="fade-right">Hack The <span class="neon-text">Terminal</span></h2>
+            <div class="terminal-container glass-panel" data-aos="zoom-in">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">guest@antigravity-os:~</span>
+                </div>
+                <div class="terminal-body" id="terminal-body">
+                    <p class="sys-msg">Initializing Antigravity Protocol...</p>
+                    <p class="sys-msg">Type 'help' for a list of available commands.</p>
+                    <div class="input-line">
+                        <span class="prompt">guest@antigravity-os:~$</span>
+                        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus>
+                    </div>
+                </div>
+            </div>
+            <p class="hint">Hint: Try typing 'matrix' or 'konami'</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title" data-aos="fade-right">Technical <span class="neon-text">Arsenal</span></h2>
+            <div class="skills-container">
+                <div class="skills-category glass-panel" data-aos="fade-up">
+                    <h3>Languages</h3>
+                    <div class="skill-bars">
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>JavaScript / TypeScript</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-line"><span class="progress" style="--w: 90%;"></span></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="progress-line"><span class="progress" style="--w: 85%;"></span></div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-info">
+                                <span>C++ / Rust</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="progress-line"><span class="progress" style="--w: 70%;"></span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category glass-panel" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Frameworks & Tools</h3>
+                    <div class="tools-grid">
+                        <div class="tool-icon"><i class='bx bxl-react'></i><span>React</span></div>
+                        <div class="tool-icon"><i class='bx bxl-nodejs'></i><span>Node.js</span></div>
+                        <div class="tool-icon"><i class='bx bxl-docker'></i><span>Docker</span></div>
+                        <div class="tool-icon"><i class='bx bxl-git'></i><span>Git</span></div>
+                        <div class="tool-icon"><i class='bx bxl-aws'></i><span>AWS</span></div>
+                        <div class="tool-icon"><i class='bx bxl-figma'></i><span>Figma</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title" data-aos="fade-right">Initiate <span class="neon-text">Contact</span></h2>
+            <div class="contact-container glass-panel" data-aos="fade-up">
+                <div class="contact-info">
+                    <h3>Let's Build the Future</h3>
+                    <p>I'm currently open for new opportunities and collaborations. Whether you have a question or just
+                        want to say hi, I'll try my best to get back to you!</p>
+
+                    <div class="social-links">
+                        <a href="https://github.com/deekshith29891-wq" class="social-orb" data-tooltip="GitHub" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i></a>
+                        <a href="https://leetcode.com/u/deekshithkr/" class="social-orb" data-tooltip="LeetCode" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.541l5.274 4.887c.306.28.767.436 1.268.436.5 0 .96-.156 1.266-.436l3.82-3.535a1.353 1.353 0 0 0 .432-.98 1.353 1.353 0 0 0-.432-.98 1.353 1.353 0 0 0-.98-.433 1.353 1.353 0 0 0-.98.433l-3.328 3.08-5.274-4.888c-.144-.132-.249-.286-.312-.444a2.915 2.915 0 0 1-.035-1.168c.058-.178.163-.342.31-.482l3.85-4.12 5.405-5.786c.143-.153.218-.344.218-.538 0-.195-.075-.386-.218-.539a1.374 1.374 0 0 0-.961-.438zm3.266 12.015a1.353 1.353 0 0 0-.98.433 1.353 1.353 0 0 0-.432.98 1.353 1.353 0 0 0 .432.98l4.471 4.143c.144.133.344.207.545.207s.401-.074.545-.207a1.353 1.353 0 0 0 .432-.98 1.353 1.353 0 0 0-.432-.98l-4.471-4.143a1.353 1.353 0 0 0-.98-.433z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.codechef.com/users/deekshu_25_vda" class="social-orb" data-tooltip="CodeChef" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                                <path d="M12.003 3.633a7.48 7.48 0 0 0-4.686 1.63L9.626 7.64A4.697 4.697 0 0 1 12.003 6.6c2.476 0 4.53 1.93 4.665 4.382l2.946-1.077a7.618 7.618 0 0 0-7.611-6.272zm-7.61 7.61a7.604 7.604 0 0 0 2.227 5.38l2.128-2.316a4.673 4.673 0 0 1-1.385-3.064c0-2.348 1.716-4.321 4.02-4.636l-1.076-2.947a7.614 7.614 0 0 0-5.914 7.583zm13.111.45l-2.915 1.135c-.244 2.158-2.07 3.865-4.28 3.993l1.134 2.915a7.625 7.625 0 0 0 6.061-8.043zm-7.004 5.922a7.498 7.498 0 0 1-4.706-1.638L8.106 18.35a4.7 4.7 0 0 0 2.394.665c2.475 0 4.53-1.929 4.664-4.381l2.946 1.077a7.616 7.616 0 0 1-7.61 6.271z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/deekshith-kr-47b0ba373" class="social-orb" data-tooltip="LinkedIn" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="social-orb" data-tooltip="Twitter"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="social-orb" data-tooltip="Email"><i class='bx bxs-envelope'></i></a>
+                    </div>
+
+                    <button id="copy-email-btn" class="btn btn-secondary mt-4">
+                        <i class='bx bx-copy'></i> Copy Email Address
+                    </button>
+                </div>
+
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/mpqbeyzy" method="POST">
+                    <div class="input-group">
+                        <input type="text" id="name" name="name" required>
+                        <label for="name">Name</label>
+                        <div class="validation-particle"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="email" name="email" required>
+                        <label for="email">Email</label>
+                        <div class="validation-particle"></div>
+                    </div>
+                    <div class="input-group">
+                        <textarea id="message" name="message" required rows="5"></textarea>
+                        <label for="message">Message</label>
+                        <div class="validation-particle"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary submit-btn">
+                        <span>Send Transmission</span>
+                        <i class='bx bx-send'></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Engineering Student. Powered by Antigravity AI.</p>
+    </footer>
+
+    <!-- Matrix Rain Canvas (Hidden by default) -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- Vanilla Tilt for 3D Cards -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
