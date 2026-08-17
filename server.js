@@ -7,10 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // ── Middleware ──────────────────────────────────────────────
-app.use(cors({
-    origin: ['http://localhost:5500', 'http://127.0.0.1:5500'],
-    methods: ['POST', 'GET'],
-}));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -103,3 +100,6 @@ app.listen(PORT, () => {
 ╚══════════════════════════════════════╝
     `);
 });
+
+module.exports = app;
+
