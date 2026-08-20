@@ -1,6 +1,8 @@
+
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -10,6 +12,8 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // ── Nodemailer Transporter (Gmail) ──────────────────────────
 const transporter = nodemailer.createTransport({
@@ -91,11 +95,13 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // ── Start Server ─────────────────────────────────────────────
+app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'dist', 'index.html')); });
+
 app.listen(PORT, () => {
     console.log(`
 ╔══════════════════════════════════════╗
 ║  🚀 Portfolio API Server Running     ║
-║  http://localhost:${PORT}               ║
+║  http://localhost:${PORT}             ║
 ║  Emails → deekshith29891@gmail.com   ║
 ╚══════════════════════════════════════╝
     `);
