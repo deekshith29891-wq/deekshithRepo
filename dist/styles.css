@@ -1276,9 +1276,61 @@ footer {
 @media (max-width: 768px) {
     .navbar { padding: 15px 5%; }
     .nav-links { display: none; /* Add hamburger menu logic later if needed */ }
-    .glitch-text { font-size: 3rem; }
-    .hero { padding: 0 5%; }
+    .glitch-text { font-size: 2.4rem; }
     #hero-canvas-container { display: none; }
-    .hero-image-wrapper { display: none; }
-    .stats-container { flex-wrap: wrap; }
+    .stats-container { flex-wrap: wrap; gap: 20px; }
+
+    /* Stack hero vertically: image on top, content below */
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 100px 5% 60px;
+        height: auto;
+        min-height: 100vh;
+        gap: 40px;
+    }
+
+    /* Show image wrapper, repositioned for stacked layout */
+    .hero-image-wrapper {
+        display: block;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 240px;
+        height: 280px;
+        flex-shrink: 0;
+        animation: heroImgFloatMobile 6s ease-in-out infinite;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+        z-index: 1;
+    }
+
+    .cta-group {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .stats-container {
+        justify-content: center;
+    }
+
+    /* Keep nametag inside bounds */
+    .hero-profile-nametag {
+        bottom: -20px;
+        padding: 6px 16px;
+    }
+
+    .nametag-title {
+        font-size: 0.85rem;
+    }
+}
+
+@keyframes heroImgFloatMobile {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
 }
