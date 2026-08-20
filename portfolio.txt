@@ -1,0 +1,5 @@
+Stock	Qty	Price	Value
+AAPL	10	188	1880
+TSLA	5	250	1250
+
+Total Investment: 3130
