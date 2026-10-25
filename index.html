@@ -29,8 +29,8 @@
     <div id="tsparticles"></div>
 
     <nav class="navbar">
-        <a href="#hero" class="logo">E.S<span>.</span></a>
         <div class="nav-links">
+            <a href="#leetcode-intel">LeetCode</a>
             <a href="#about">About</a>
             <a href="#projects">Projects</a>
             <a href="#games">Terminal</a>
@@ -68,16 +68,16 @@
 
                 <div class="stats-container" data-aos="fade-up" data-aos-delay="300">
                     <div class="stat-box">
-                        <span class="stat-number" data-target="25">0</span>
+                        <span class="stat-number" data-target="25">3</span>
                         <span class="stat-label">Projects</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number" data-target="15">0</span>
+                        <span class="stat-number" data-target="15">10+</span>
                         <span class="stat-label">Skills</span>
                     </div>
                     <div class="stat-box">
-                        <span class="stat-number" data-target="10">0</span>
-                        <span class="stat-label">K+ Hrs Coded</span>
+                        <span class="stat-number" data-target="110">110+</span>
+                        <span class="stat-label">LeetCode Solved</span>
                     </div>
                 </div>
 
@@ -87,6 +87,236 @@
                 </div>
             </div>
         </section>
+
+        <!-- Live LeetCode Intelligence Dashboard -->
+        <section id="leetcode-intel" class="section leetcode-section">
+            <div class="leetcode-header" data-aos="fade-up">
+                <div class="leetcode-header-left">
+                    <div class="section-tag">
+                        <span class="live-pulse-dot"></span>
+                        <span class="tag-text">LIVE INTELLIGENCE ENGINE</span>
+                    </div>
+                    <h2 class="section-title">LeetCode <span class="neon-text">Analytics</span></h2>
+                    <p class="section-subtitle">Real-time algorithmic performance telemetry, submission cadence, and verified achievements.</p>
+                </div>
+                <div class="leetcode-header-actions">
+                    <div class="engine-status-badge" id="engine-status">
+                        <span class="status-indicator live"></span>
+                        <span class="status-text" id="status-label">Synchronized</span>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" id="btn-refresh-leetcode" title="Force sync with LeetCode API">
+                        <i class='bx bx-refresh' id="refresh-icon"></i>
+                        <span>Sync Now</span>
+                    </button>
+                    <a href="https://leetcode.com/u/deekshithkr/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm leetcode-profile-btn">
+                        <span>Open LeetCode</span>
+                        <i class='bx bx-link-external'></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sync Meta Bar -->
+            <div class="leetcode-meta-bar glass-panel" data-aos="fade-up" data-aos-delay="50">
+                <div class="meta-item">
+                    <span class="meta-label">Profile Handle</span>
+                    <span class="meta-value">@deekshithkr</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Global Rank</span>
+                    <span class="meta-value" id="val-global-rank">Loading...</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Acceptance Rate</span>
+                    <span class="meta-value" id="val-acceptance-rate">Loading...</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Total Submissions</span>
+                    <span class="meta-value" id="val-total-subs">Loading...</span>
+                </div>
+                <div class="meta-item">
+                    <span class="meta-label">Last Sync</span>
+                    <span class="meta-value" id="val-last-synced">Fetching...</span>
+                </div>
+            </div>
+
+            <!-- Stats Overview Cards Grid -->
+            <div class="leetcode-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- Total Solved Hero Card -->
+                <div class="leetcode-card glass-panel total-solved-card">
+                    <div class="card-glow-accent"></div>
+                    <div class="card-header-mini">
+                        <span class="card-caption">Total Problems Solved</span>
+                        <i class='bx bx-code-curly'></i>
+                    </div>
+                    <div class="solved-hero-number" id="val-total-solved">--</div>
+                    <div class="difficulty-bars">
+                        <!-- Easy -->
+                        <div class="diff-row">
+                            <div class="diff-meta">
+                                <span class="diff-tag diff-easy">Easy</span>
+                                <span class="diff-numbers" id="val-easy-solved">--</span>
+                            </div>
+                            <div class="diff-progress-track">
+                                <div class="diff-progress-fill fill-easy" id="bar-easy" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <!-- Medium -->
+                        <div class="diff-row">
+                            <div class="diff-meta">
+                                <span class="diff-tag diff-med">Medium</span>
+                                <span class="diff-numbers" id="val-med-solved">--</span>
+                            </div>
+                            <div class="diff-progress-track">
+                                <div class="diff-progress-fill fill-med" id="bar-med" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <!-- Hard -->
+                        <div class="diff-row">
+                            <div class="diff-meta">
+                                <span class="diff-tag diff-hard">Hard</span>
+                                <span class="diff-numbers" id="val-hard-solved">--</span>
+                            </div>
+                            <div class="diff-progress-track">
+                                <div class="diff-progress-fill fill-hard" id="bar-hard" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Streaks & Cadence Card -->
+                <div class="leetcode-card glass-panel">
+                    <div class="card-header-mini">
+                        <span class="card-caption">Streak & Cadence</span>
+                        <i class='bx bx-fire'></i>
+                    </div>
+                    <div class="streak-stats-row">
+                        <div class="streak-item">
+                            <span class="streak-val" id="val-current-streak">--</span>
+                            <span class="streak-lbl">Current Streak (Days)</span>
+                        </div>
+                        <div class="streak-divider"></div>
+                        <div class="streak-item">
+                            <span class="streak-val" id="val-longest-streak">--</span>
+                            <span class="streak-lbl">Longest Streak (Days)</span>
+                        </div>
+                    </div>
+                    <div class="activity-breakdown">
+                        <div class="cadence-box">
+                            <span class="cadence-num" id="val-today-subs">--</span>
+                            <span class="cadence-lbl">Today's Subs</span>
+                        </div>
+                        <div class="cadence-box">
+                            <span class="cadence-num" id="val-weekly-subs">--</span>
+                            <span class="cadence-lbl">Past 7 Days</span>
+                        </div>
+                        <div class="cadence-box">
+                            <span class="cadence-num" id="val-monthly-subs">--</span>
+                            <span class="cadence-lbl">Past 30 Days</span>
+                        </div>
+                        <div class="cadence-box">
+                            <span class="cadence-num" id="val-active-days">--</span>
+                            <span class="cadence-lbl">Active Days</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Daily Coding Goal & Verified Badges -->
+                <div class="leetcode-card glass-panel goal-badge-card">
+                    <div class="card-header-mini">
+                        <span class="card-caption">Daily Target & Milestones</span>
+                        <i class='bx bx-target-lock'></i>
+                    </div>
+                    <div class="goal-widget">
+                        <div class="goal-info">
+                            <span>Daily Problem Target</span>
+                            <span class="goal-counter" id="goal-counter-text">0 / 2 Solved</span>
+                        </div>
+                        <div class="goal-track">
+                            <div class="goal-fill" id="goal-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <span class="goal-hint" id="goal-status-text">Synchronizing daily progress...</span>
+                    </div>
+
+                    <div class="verified-badges-grid">
+                        <div class="badge-item glass-panel" title="Solved 100+ algorithmic challenges">
+                            <i class='bx bx-award'></i>
+                            <span>Centurion (100+)</span>
+                        </div>
+                        <div class="badge-item glass-panel" title="Consistent problem solver">
+                            <i class='bx bxs-zap'></i>
+                            <span>Active Solver</span>
+                        </div>
+                        <div class="badge-item glass-panel" title="Solved Medium complexity problems">
+                            <i class='bx bx-shield-quarter'></i>
+                            <span>Medium Master</span>
+                        </div>
+                        <div class="badge-item glass-panel" title="Multi-language implementations">
+                            <i class='bx bx-code-alt'></i>
+                            <span>Polyglot (C++/Py)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GitHub-Style Contribution Heatmap -->
+            <div class="leetcode-heatmap-container glass-panel" data-aos="fade-up" data-aos-delay="150">
+                <div class="heatmap-header">
+                    <div>
+                        <h3 class="heatmap-title">Submission Activity Calendar</h3>
+                        <p class="heatmap-subtitle">Daily submission intensity mapped across the past 52 weeks.</p>
+                    </div>
+                    <div class="heatmap-legend">
+                        <span class="legend-text">Less</span>
+                        <span class="legend-box level-0"></span>
+                        <span class="legend-box level-1"></span>
+                        <span class="legend-box level-2"></span>
+                        <span class="legend-box level-3"></span>
+                        <span class="legend-box level-4"></span>
+                        <span class="legend-text">More</span>
+                    </div>
+                </div>
+
+                <!-- Heatmap Canvas / Grid Container -->
+                <div class="heatmap-scroll-wrapper">
+                    <div class="heatmap-months-row" id="heatmap-months"></div>
+                    <div class="heatmap-grid" id="heatmap-grid">
+                        <!-- Populated dynamically via JS with day squares -->
+                    </div>
+                </div>
+                <div class="heatmap-tooltip" id="heatmap-tooltip"></div>
+            </div>
+
+            <!-- Recent Accepted Submissions Live Feed -->
+            <div class="leetcode-recent-container glass-panel" data-aos="fade-up" data-aos-delay="200">
+                <div class="recent-header">
+                    <div class="recent-title-group">
+                        <i class='bx bx-history'></i>
+                        <h3>Recent Submissions Stream</h3>
+                    </div>
+                    <span class="verified-tag"><i class='bx bx-check-shield'></i> Official Telemetry Feed</span>
+                </div>
+                <div class="recent-table-wrapper">
+                    <table class="recent-submissions-table">
+                        <thead>
+                            <tr>
+                                <th>Problem Title</th>
+                                <th>Status</th>
+                                <th>Language</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-submissions-body">
+                            <tr>
+                                <td colspan="4" class="table-loading-cell">Connecting to live submission stream...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Toast Notification Hub -->
+        <div class="leetcode-toast-hub" id="toast-hub" aria-live="polite"></div>
 
         <!-- About Me Section -->
         <section id="about" class="section">
@@ -98,28 +328,77 @@
                         <div id="avatar-3d-container"></div>
                     </div>
                     <div class="about-info">
-                        <h3>Passionate Innovator</h3>
-                        <p>I'm an engineering student focused on pushing the boundaries of what's possible with code and
-                            design. I love building high-performance, aesthetically pleasing, and robust applications.
-                        </p>
+                        <h3>Problem Solver & AI Developer</h3>
+                        <p>I'm a second-year B.Tech CSE (AI) student passionate about problem-solving, full-stack development, and building practical projects. I enjoy turning ideas into working applications, exploring AI technologies, and developing intelligent AI agents. With experience across frontend, backend, and databases, I'm continuously improving my skills through coding challenges, personal projects, and hackathons.</p>
+                        
                         <ul class="timeline">
                             <li>
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-content">
-                                    <h4>Senior Year Engineering</h4>
-                                    <span>2024 - Present</span>
-                                    <p>Focusing on AI & Advanced Web Technologies.</p>
+                                    <h4>B.Tech CSE — Artificial Intelligence</h4>
+                                    <span>2026 – Present</span>
+                                    <p>Pursuing my degree at Yenepoya (Deemed to be University), developing a strong foundation in computer science, artificial intelligence, and software engineering.</p>
                                 </div>
                             </li>
                             <li>
                                 <div class="timeline-dot"></div>
                                 <div class="timeline-content">
-                                    <h4>Full Stack Developer Intern</h4>
-                                    <span>Summer 2023</span>
-                                    <p>Built scalable solutions handling 10k+ daily requests.</p>
+                                    <h4>Full-Stack Developer</h4>
+                                    <span>Present</span>
+                                    <p>Building practical web applications using React, JavaScript, Node.js, Express, REST APIs, and databases. Focused on creating responsive, functional, and user-friendly applications.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <h4>AI Developer & Hackathon Participant</h4>
+                                    <span>Present</span>
+                                    <p>Participated in four hackathons and explored AI agents, AI integrations, and innovative software solutions to real-world problems.</p>
                                 </div>
                             </li>
                         </ul>
+
+                        <!-- Achievement Cards -->
+                        <div class="about-highlights" data-aos="fade-up" data-aos-delay="150">
+                            <div class="highlight-card glass-panel">
+                                <div class="highlight-icon">
+                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.541l5.274 4.887c.306.28.767.436 1.268.436.5 0 .96-.156 1.266-.436l3.82-3.535a1.353 1.353 0 0 0 .432-.98 1.353 1.353 0 0 0-.432-.98 1.353 1.353 0 0 0-.98-.433 1.353 1.353 0 0 0-.98.433l-3.328 3.08-5.274-4.888c-.144-.132-.249-.286-.312-.444a2.915 2.915 0 0 1-.035-1.168c.058-.178.163-.342.31-.482l3.85-4.12 5.405-5.786c.143-.153.218-.344.218-.538 0-.195-.075-.386-.218-.539a1.374 1.374 0 0 0-.961-.438zm3.266 12.015a1.353 1.353 0 0 0-.98.433 1.353 1.353 0 0 0-.432.98 1.353 1.353 0 0 0 .432.98l4.471 4.143c.144.133.344.207.545.207s.401-.074.545-.207a1.353 1.353 0 0 0 .432-.98 1.353 1.353 0 0 0-.432-.98l-4.471-4.143a1.353 1.353 0 0 0-.98-.433z"/>
+                                    </svg>
+                                </div>
+                                <div class="highlight-text">
+                                    <span class="highlight-value">110+</span>
+                                    <span class="highlight-label">LeetCode Solved</span>
+                                </div>
+                            </div>
+                            <div class="highlight-card glass-panel">
+                                <div class="highlight-icon">
+                                    <i class='bx bx-trophy'></i>
+                                </div>
+                                <div class="highlight-text">
+                                    <span class="highlight-value">4</span>
+                                    <span class="highlight-label">Hackathons</span>
+                                </div>
+                            </div>
+                            <div class="highlight-card glass-panel">
+                                <div class="highlight-icon">
+                                    <i class='bx bx-folder-code'></i>
+                                </div>
+                                <div class="highlight-text">
+                                    <span class="highlight-value">Multiple</span>
+                                    <span class="highlight-label">Projects Built</span>
+                                </div>
+                            </div>
+                            <div class="highlight-card glass-panel">
+                                <div class="highlight-icon">
+                                    <i class='bx bx-layer'></i>
+                                </div>
+                                <div class="highlight-text">
+                                    <span class="highlight-value">Full Stack</span>
+                                    <span class="highlight-label">Development</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -131,17 +410,17 @@
             <div class="projects-grid">
                 <!-- Project Card 1 -->
                 <div class="project-card glass-panel tilt" data-aos="fade-up">
-                    <div class="project-img">
+                    <div class="project-img" style="background: linear-gradient(45deg, #0a0a14, #7b2cbf)">
                         <div class="overlay"></div>
-                        <span class="project-category">AI / ML</span>
+                        <span class="project-category">AI Agent</span>
                     </div>
                     <div class="project-content">
-                        <h3>Neural Network Visualizer</h3>
-                        <p>Interactive 3D visualization of neural network layer activations built with WebGL.</p>
+                        <h3>Intelligent AI Agent</h3>
+                        <p>Autonomous task-driven AI agent capable of multi-step reasoning, external tool execution, and dynamic context handling.</p>
                         <div class="tech-stack">
-                            <span>Three.js</span>
                             <span>Python</span>
-                            <span>TensorFlow</span>
+                            <span>LLM APIs</span>
+                            <span>LangChain</span>
                         </div>
                         <div class="project-links">
                             <button class="btn btn-icon"><i class='bx bx-link-external'></i> Live Demo</button>
@@ -173,17 +452,18 @@
                 <div class="project-card glass-panel tilt" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-img" style="background: linear-gradient(45deg, #0a0a0a, #00d4ff)">
                         <div class="overlay"></div>
-                        <span class="project-category">System</span>
+                        <span class="project-category">Full Stack</span>
                     </div>
                     <div class="project-content">
-                        <h3>Rust Microkernel</h3>
-                        <p>A lightweight, secure microkernel written from scratch in Rust.</p>
+                        <h3>Full-Stack Web App</h3>
+                        <p>Modern responsive web application featuring RESTful API architecture, secure authentication, and dynamic database state management.</p>
                         <div class="tech-stack">
-                            <span>Rust</span>
-                            <span>Assembly</span>
-                            <span>QEMU</span>
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
                         </div>
                         <div class="project-links">
+                            <button class="btn btn-icon"><i class='bx bx-link-external'></i> Live Demo</button>
                             <button class="btn btn-icon"><i class='bx bxl-github'></i> Code</button>
                         </div>
                     </div>
@@ -320,6 +600,12 @@
 
     <!-- Matrix Rain Canvas (Hidden by default) -->
     <canvas id="matrix-canvas"></canvas>
+
+    <!-- Premium Custom Cursor -->
+    <div class="custom-cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" id="cursor-ring" aria-hidden="true">
+        <span class="cursor-project-label" id="cursor-project-label">VIEW PROJECT</span>
+    </div>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
